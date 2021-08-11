@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             TabView {
-                MainView()
+                CharacterView()
                     .tabItem {
                         Label("Characters", systemImage: "person.3")
                     }

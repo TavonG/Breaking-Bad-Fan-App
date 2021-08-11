@@ -7,19 +7,45 @@
 
 import Foundation
 
-struct characters: Codable {
+//
+//struct FanData: Decodable {
+//    var character: charactersData
+//    var ep: episodeData
+//
+//    enum CodingKeys: String, CodingKey {
+//        case character = "char_id"
+//        case ep = "epsidoe_id"
+//    }
+//
+//
+struct charactersData: Codable, Identifiable {
     let id: Int
     let name: String
-    let img: Image
+    //let img: Image
     let status: String
     let nickname: String
     
 }
 
-struct episodes: Codable {
+class Api {
+    func getChar() {
+        guard let url = URL(string: "https://www.breakingbadapi.com/api/characters") else {return }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            let char = try! JSONDecoder().decode([charactersData].self, from: data!)
+            print(char)
+        }
+        .resume()
+    }
+}
+
+struct episodeData: Codable {
     let id: Int
     let title: String
     let season: Int
     let epsiode: Int
     
 }
+
+
+

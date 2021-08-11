@@ -71,9 +71,9 @@ class ViewModel: ObservableObject {
 struct CharacterView: View {
     
     let Columns: [GridItem] = [
-        GridItem(.fixed(50), spacing: nil, alignment: nil),
-        GridItem(.fixed(50), spacing: nil, alignment: nil),
-        GridItem(.fixed(50), spacing: nil, alignment: nil)
+        GridItem(.fixed(100), spacing: nil, alignment: nil),
+        GridItem(.fixed(100), spacing: nil, alignment: nil),
+        GridItem(.fixed(100), spacing: nil, alignment: nil)
     
     
     ]
@@ -83,7 +83,7 @@ struct CharacterView: View {
             ForEach(0..<27) { index in
                 Rectangle()
                     .frame(height: 25)
-                
+                    
             }
 
 

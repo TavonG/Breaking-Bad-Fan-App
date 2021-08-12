@@ -18,7 +18,7 @@ import Foundation
 //    }
 //
 //
-struct charactersData: Codable, Identifiable {
+struct Character: Codable, Identifiable {
     let id: Int
     let name: String
     //let img: Image
@@ -27,25 +27,31 @@ struct charactersData: Codable, Identifiable {
     
 }
 
-class Api {
-    func getChar() {
-        guard let url = URL(string: "https://www.breakingbadapi.com/api/characters") else {return }
-        
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let char = try! JSONDecoder().decode([charactersData].self, from: data!)
-            print(char)
-        }
-        .resume()
-    }
-}
-
-struct episodeData: Codable {
+struct episodeData: Codable, Identifiable {
     let id: Int
     let title: String
     let season: Int
     let epsiode: Int
     
 }
+
+class Api {
+    func getChar(completion: @escaping ([Character]) -> ()) {
+        guard let url = URL(string: "https://www.breakingbadapi.com/api/characters") else {return }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            let char = try! JSONDecoder().decode([Character].self, from: data!)
+            
+            DispatchQueue.main.async {
+                completion(char)
+            }
+            
+        }
+        .resume()
+    }
+}
+
+
 
 
 

@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct charView: View {
+    
+    @State var Characters: [Character] = []
+    
     var body: some View {
-        Text("Characters!")
-            .onAppear() {
-                Api().getChar()
+        List(Characters) { Character in
+            Text(Character.name)
+            
+        }
+        .onAppear() {
+            Api().getChar { (Characters) in
+                self.Characters = Characters
+                
+                
             }
+        }
     }
 }
+
 
 struct charView_Previews: PreviewProvider {
     static var previews: some View {

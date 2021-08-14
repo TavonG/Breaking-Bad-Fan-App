@@ -10,20 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
-            TabView {
-                charView()
-                    .tabItem {
-                        Label("Characters", systemImage: "person.3")
-                    }
-                EpisodesView()
-                    .tabItem {
-                        Label("Episodes", systemImage: "list.number")
-                    }
-                
-            }
-            .navigationTitle("Breaking Bad Fans")
-        }
+        AppTabbar()
  
     }
 }

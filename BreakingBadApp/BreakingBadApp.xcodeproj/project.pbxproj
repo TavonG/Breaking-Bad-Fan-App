@@ -13,6 +13,7 @@
 		D578B17526C36299004ED8A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D578B17426C36299004ED8A7 /* Preview Assets.xcassets */; };
 		D578B18926C36EFD004ED8A7 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578B18826C36EFD004ED8A7 /* EpisodesView.swift */; };
 		D5AC77A226C8644200181B4D /* AppTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC77A126C8644200181B4D /* AppTabbar.swift */; };
+		D5AC77A526C88A6800181B4D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC77A426C88A6800181B4D /* API.swift */; };
 		D5EB27A926C57DE0001A9F68 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB27A826C57DE0001A9F68 /* CharactersView.swift */; };
 		D5EB27AB26C57E00001A9F68 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB27AA26C57E00001A9F68 /* CharactersViewModel.swift */; };
 		D5EB27AE26C57F18001A9F68 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB27AD26C57F18001A9F68 /* CharacterDetailView.swift */; };
@@ -31,6 +32,7 @@
 		D578B17626C36299004ED8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D578B18826C36EFD004ED8A7 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
 		D5AC77A126C8644200181B4D /* AppTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabbar.swift; sourceTree = "<group>"; };
+		D5AC77A426C88A6800181B4D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D5EB27A826C57DE0001A9F68 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		D5EB27AA26C57E00001A9F68 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		D5EB27AD26C57F18001A9F68 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		D578B16C26C36291004ED8A7 /* BreakingBadApp */ = {
 			isa = PBXGroup;
 			children = (
+				D5AC77A326C88A4D00181B4D /* Networking */,
 				D5AC77A026C85DCA00181B4D /* AppTabBarNav */,
 				D5EB27BA26C58644001A9F68 /* Views */,
 				D5EB27B426C58084001A9F68 /* Models */,
@@ -99,6 +102,14 @@
 				D5AC77A126C8644200181B4D /* AppTabbar.swift */,
 			);
 			path = AppTabBarNav;
+			sourceTree = "<group>";
+		};
+		D5AC77A326C88A4D00181B4D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D5AC77A426C88A6800181B4D /* API.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		D5EB27A726C57DA1001A9F68 /* Characters */ = {
@@ -223,6 +234,7 @@
 				D5EB27B326C57FB1001A9F68 /* EpisodesViewModel.swift in Sources */,
 				D5EB27B026C57F31001A9F68 /* CharacterDetailViewModel.swift in Sources */,
 				D578B16E26C36291004ED8A7 /* BreakingBadAppApp.swift in Sources */,
+				D5AC77A526C88A6800181B4D /* API.swift in Sources */,
 				D5EB27AE26C57F18001A9F68 /* CharacterDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

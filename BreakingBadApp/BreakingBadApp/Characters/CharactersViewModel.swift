@@ -14,5 +14,6 @@ final class CharactersViewModel: ObservableObject {
     
     @Published var error: API.Error? = nil
     @Published var characterd: [Character] = []
+    @Published var epsiodes: [Episode] = []
     
 }

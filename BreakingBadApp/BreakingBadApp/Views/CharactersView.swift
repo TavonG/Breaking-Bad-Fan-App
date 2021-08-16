@@ -24,13 +24,13 @@ struct CharactersView: View {
             }
         }
         
-//        model.fetchCharacter()
+        
     }
     
     var grid: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 200), spacing: 4)], spacing: 34) {
-            ForEach(model.characters) { _ in
-                CharactersView(character: character)
+            ForEach(0..<27) { _ in
+                CharactersView()
             }
         }
         

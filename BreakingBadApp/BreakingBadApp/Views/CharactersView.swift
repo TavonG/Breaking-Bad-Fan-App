@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct CharactersView: View {
+    @EnvironmentObject var model:
+        CharactersViewModel
+    
+    
     var body: some View {
         ZStack {
             Color(.white)
@@ -19,12 +23,14 @@ struct CharactersView: View {
                 }
             }
         }
+        
+//        model.fetchCharacter()
     }
     
     var grid: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 200), spacing: 4)], spacing: 34) {
-            ForEach(0..<27) { _ in
-                CharactersView()
+            ForEach(model.characters) { _ in
+                CharactersView(character: character)
             }
         }
         

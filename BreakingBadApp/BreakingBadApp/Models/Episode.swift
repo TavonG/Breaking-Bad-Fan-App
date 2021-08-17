@@ -11,7 +11,7 @@ struct Episode: Codable {
     let episodeID: Int
     let title: String
     let season: Int
-    let epsiode: Int
+    let episodeNumber: Int
 }
 
 

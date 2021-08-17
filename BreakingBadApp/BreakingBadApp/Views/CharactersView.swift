@@ -8,40 +8,61 @@
 import SwiftUI
 
 struct CharactersView: View {
-    @EnvironmentObject var model:
-        CharactersViewModel
+    
+    let Columns: [GridItem] = [
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+    
+    ]
     
     
     var body: some View {
-        ZStack {
-            Color(.white)
-                .edgesIgnoringSafeArea(.all)
+        ScrollView {
             
-            ScrollView {
-                VStack {
+            Rectangle()
+                .fill()
+            
+            LazyVGrid(
+                columns: Columns,
+                alignment: .center,
+                spacing: 50,
+                pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/,
+                content: {
+                    Section(header:
+                                Text("Breaking Bad Characters")
+                                .foregroundColor(.red)
+                                .font(.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.white)
+                                .padding()
+                    ) {
+                        ForEach(0..<50) { index in
+                            Rectangle()
+                                .frame(height: 150)
+                        }
+                    }
                     
-                }
+                        
+                    
+                })
             }
+            
+            
+        
+
+
+
+
+            
         }
-        
-        
+
     }
     
-    var grid: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 200), spacing: 4)], spacing: 34) {
-            ForEach(0..<27) { _ in
-                CharactersView()
-            }
-        }
-        
-        .padding(.horizontal, 5)
-        .padding(.vertical, 30)
-    }
-    
-}
+
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        CharactersView().previewLayout(.fixed(width: 130, height: 150))
+        CharactersView()
     }
 }

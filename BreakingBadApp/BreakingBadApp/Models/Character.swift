@@ -7,27 +7,21 @@
 
 import SwiftUI
 
-struct Character: Codable {
-    let characteriID: Int
-    let name: String
-    let occupation: [String]
-    let image: String
-    let status: String
-    let nickname: String
-    let appearance: [Int]
-    let portrayed: String
-}
-
-enum Status: String, Codable {
-    case alive = "Alive"
-    case deceased = "Deceased"
-    case presumeDead = "Presumed dead"
-    case unkown = "Unknown"
-    
+struct Character: Codable, Identifiable {
+    var id: Int = 0
+    var name: String = ""
+    var occupation: [String] = []
+    var image: String = ""
+    var status: String = ""
+    var nickname: String = ""
+    var appearance: [Int] = []
+    var portrayed: String = ""
     
     enum CodingKeys: String, CodingKey {
         case name, occupation, status, nickname, appearance, portrayed
-        case characterID =  "char_id"
+        case id =  "char_id"
         case image = "img"
     }
 }
+
+

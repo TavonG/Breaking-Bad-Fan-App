@@ -7,14 +7,20 @@
 
 import SwiftUI
 
-struct Episode: Codable {
-    let episodeID: Int
+struct Episode: Codable, Identifiable {
+    let id: Int
     let title: String
-    let season: Int
-    let episodeNumber: Int
+    let season: String
+    let episode: String
+    let characters: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case title, season, episode, characters
+        case id = "episode_id"
+    }
+    
+    static var `default` = Self(id: 0, title: "The", season: "1", episode: "1", characters: ["Mike", "Kim"])
 }
 
 
-enum CodingKeys: String, CodingKey {
-    case epsiodeID = "episode_id"
-}
+

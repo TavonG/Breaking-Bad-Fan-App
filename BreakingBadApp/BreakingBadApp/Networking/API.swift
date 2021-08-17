@@ -9,7 +9,7 @@ import Combine
 import  SwiftUI
 
 struct API {
-    // create error
+    
     enum Error: LocalizedError, Identifiable {
         var id: String { localizedDescription }
         
@@ -25,21 +25,24 @@ struct API {
     }
     
     enum EndPoint {
-        static let baseUrl = URL(string: "https://www.breakingbadapi.com/api/")!
-        
+        static let baseUrl = URL(string: "https://www.breakingbadapi.com")!
         
         case characters
-        case epsiodes
+        case character(Int)
+        case episodes
         
         var url: URL {
             switch self {
             case .characters:
                 return EndPoint.baseUrl.appendingPathComponent("/api/characters")
-            case .epsiodes:
+            case .character(let id):
+                return EndPoint.baseUrl.appendingPathComponent("/api/characters/\(id)")
+            case .episodes:
                 return EndPoint.baseUrl.appendingPathComponent("/api/episodes")
             }
         }
         
+        // creates a url request
         static func request(with url: URL) -> URLRequest {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
@@ -51,21 +54,54 @@ struct API {
     
     private let decoder = JSONDecoder()
     
-    func fetchCharacter() -> AnyPublisher<Character, Error> {
+    // fetches characters by id
+    func fetchCharacter(id: Int) -> AnyPublisher<[Character], Error> {
         
-        URLSession.shared.dataTaskPublisher(for: EndPoint.request(with: EndPoint.characters.url))
+        URLSession.shared.dataTaskPublisher(for: EndPoint.request(with: EndPoint.character(id).url))
             .map { return $0.data }
-            .decode(type: Character.self, decoder: decoder)
-            .print()
+            .decode(type: [Character].self, decoder: decoder)
             .mapError { error in
                 switch error {
                 case is URLError:
-                return Error.addressUnreachable(EndPoint.characters.url)
+                    return Error.addressUnreachable(EndPoint.character(id).url)
                 default: return Error.invalidResponse
                 }
             }
-            .print()
+            .map { $0 }
+            .eraseToAnyPublisher()
+        
+    }
+    
+    // fetches all characters
+    func fetchCharacters() -> AnyPublisher<[Character], Error> {
+        URLSession.shared.dataTaskPublisher(for: EndPoint.request(with: EndPoint.characters.url))
+            .map { return $0.data }
+            .decode(type: [Character].self, decoder: decoder)
+            .mapError { error in
+                switch error {
+                case is URLError:
+                    return Error.addressUnreachable(EndPoint.characters.url)
+                default: return Error.invalidResponse
+                }
+            }
             .map { $0 }
             .eraseToAnyPublisher()
     }
+    
+    // fetches all epsiodes
+    func fetchEpisodes() -> AnyPublisher<[Episode], Error> {
+        URLSession.shared.dataTaskPublisher(for: EndPoint.request(with: EndPoint.episodes.url))
+            .map { return $0.data }
+            .decode(type: [Episode].self, decoder: decoder)
+            .mapError { error in
+                switch error {
+                case is URLError:
+                    return Error.addressUnreachable(EndPoint.episodes.url)
+                default: return Error.invalidResponse
+                }
+            }
+            .map { $0 }
+            .eraseToAnyPublisher()
+    }
+    
 }

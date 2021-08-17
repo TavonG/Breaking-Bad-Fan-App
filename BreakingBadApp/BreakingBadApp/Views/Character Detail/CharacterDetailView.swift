@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct CharacterDetailView: View {
+    @StateObject var model = CharacterDetailViewModel()
+    let id: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(model.character.name).onAppear {
+            model.fetchCharacter(id: id)
+        }
     }
 }
 
 struct CharacterDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterDetailView()
+        CharacterDetailView(id: 0)
     }
 }

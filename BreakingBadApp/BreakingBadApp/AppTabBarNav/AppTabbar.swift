@@ -32,7 +32,6 @@ struct AppTabbar: View {
                     }
                 
             }
-            .navigationTitle("Breaking Bad Fans")
         }
     }
 }

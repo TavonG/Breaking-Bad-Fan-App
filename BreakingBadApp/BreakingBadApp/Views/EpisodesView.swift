@@ -9,24 +9,24 @@ import SwiftUI
 
 struct EpisodesView: View {
     
-    var episodes: [Episode] = Episode.self
+   // var episodes: [Episode]
     var body: some View {
         NavigationView {
-            List(episodes, id: \.self) { episode in
+            List(0..<20) { item in
                 
                 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(episode.season)
+                    Text("Season # ")
                         .fontWeight(.semibold)
                         .lineLimit(3)
                         .minimumScaleFactor(0.5)
                         .frame(height: 30)
                         .cornerRadius(4)
                     
-                    Text(episode.episodeNumber)
+                    Text("Episode # 1")
                         .fontWeight(.semibold)
                     
-                    Text(episode.title)
+                    Text("This is the title of the episode")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     

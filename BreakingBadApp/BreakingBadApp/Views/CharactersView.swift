@@ -20,9 +20,6 @@ struct CharactersView: View {
     var body: some View {
         ScrollView {
             
-            Rectangle()
-                .fill()
-            
             LazyVGrid(
                 columns: Columns,
                 alignment: .center,
@@ -30,9 +27,10 @@ struct CharactersView: View {
                 pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/,
                 content: {
                     Section(header:
-                                Text("Breaking Bad Characters")
+                                Text("Breaking Bad Fans")
                                 .foregroundColor(.red)
                                 .font(.title)
+                                .fontWeight(.bold)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .background(Color.white)
                                 .padding()

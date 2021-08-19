@@ -12,9 +12,13 @@ struct CharacterDetailView: View {
     let id: Int
     
     var body: some View {
-        Text(model.character.name).onAppear {
-            model.fetchCharacter(id: id)
+        VStack {
+            Text(model.character.name).onAppear {
+                model.fetchCharacter(id: id)
+            }
+            
         }
+        
     }
 }
 
@@ -23,3 +27,8 @@ struct CharacterDetailView_Previews: PreviewProvider {
         CharacterDetailView(id: 0)
     }
 }
+
+
+//Text(model.character.name).onAppear {
+//    model.fetchCharacter(id: id)
+//}

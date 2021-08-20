@@ -15,6 +15,9 @@ struct EpisodeDetailView: View {
             Text(episode.title)
             ForEach(episode.characters, id: \.self) { character in
                 Text(character)
+                    .font(.caption2)
+                    .fontWeight(.semibold)
+                    
             }
         }
     }

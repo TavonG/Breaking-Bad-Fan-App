@@ -37,8 +37,8 @@ struct CharacterDetailView: View {
     func character(image: String) -> some View {
         if !image.isEmpty {
             return AnyView(ImageWithURL(image)
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 200, height: 200)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 350, height: 350)
                 .clipped())
         }
         return AnyView(EmptyView())

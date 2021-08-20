@@ -22,6 +22,8 @@ struct Character: Codable, Identifiable {
         case id =  "char_id"
         case image = "img"
     }
+    
+    static var `default` = Self(id: 0, name: "name", occupation: ["occu"], image: "", status: "status", nickname: "nickname", appearance: [1], portrayed: "")
 }
 
 

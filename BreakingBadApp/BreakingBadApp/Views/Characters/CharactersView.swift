@@ -25,6 +25,7 @@ struct CharactersView: View {
                     ForEach(model.characters) { character in
                         NavigationLink(
                             destination: CharacterDetailView(id: character.id),
+                           
                             label: {
                                 VStack {
                                     ImageWithURL(character.image)

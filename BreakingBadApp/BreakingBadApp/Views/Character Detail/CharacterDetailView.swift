@@ -12,13 +12,36 @@ struct CharacterDetailView: View {
     let id: Int
     
     var body: some View {
-        VStack {
-            Text(model.character.name).onAppear {
-                model.fetchCharacter(id: id)
-            }
+        VStack(alignment: .leading) {
+            character(image: model.character.image)
+            Text(model.character.name)
+                .font(.title)
             
+            Text(model.character.nickname)
+                .font(.title2)
+                .foregroundColor(.secondary)
+            
+            Text("Status")
+                .font(.title2)
+            
+            
+            Text(model.character.status)
+                .font(.title3)
+                .foregroundColor(.secondary)
+        }.onAppear {
+            model.fetchCharacter(id: id)
         }
         
+    }
+    
+    func character(image: String) -> some View {
+        if !image.isEmpty {
+            return AnyView(ImageWithURL(image)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 200, height: 200)
+                .clipped())
+        }
+        return AnyView(EmptyView())
     }
 }
 

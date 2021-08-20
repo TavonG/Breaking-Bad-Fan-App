@@ -30,7 +30,7 @@ struct CharactersView: View {
                                 VStack {
                                     ImageWithURL(character.image)
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 75, height: 75)
+                                        .frame(width: 120, height: 120)
                                         .clipped()
                                     Text(character.name)
                                 }

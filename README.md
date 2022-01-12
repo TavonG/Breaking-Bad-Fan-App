@@ -2,7 +2,7 @@
 Breaking Bad App overview
 
 
-This app contains a TabBar with 2 items, Characters and Episodes. Character view displays the characters with an image and when each character is tapped on it displays another view with all the character details. Episodes view has a list of the episode number, season, and title and also a detail view of the episode when the cell is tapped on.
+This app will display Characters and Episodes of Breaking Bad. Character view displays the characters with an image and when each character is tapped on it displays another view with all the character details. Episodes view has a list of the episode number, season, and title and also a detail view of the episode when the cell is tapped on.
 
 The Episode and Character model files are to display the data in a vertical grid and the episodes in a list view. The model files conform to codable and identifiable, identifiable makes a unique identifier to keep track of it.
 
